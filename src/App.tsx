@@ -1,26 +1,31 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import PostForm from './pages/PostForm';
+import UserProfile from './pages/UserProfile';
+import CreatePost from './components/CreatePost';
 
-function App() {
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='HomePage' element={<HomePage />} />
+        <Route path='UserProfile' element={<UserProfile />} />
+ 
+        <Route path='PostForm' element={<PostForm onSubmit={function (text: string): void {
+          throw new Error('Function not implemented.');
+        } } />} />
+        
+      </Routes>
+    </BrowserRouter>
+    
   );
 }
+
 
 export default App;
