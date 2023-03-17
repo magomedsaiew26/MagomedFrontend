@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import noroffLogo from '../assets/noroff.png';
 
 const Sidebar: React.FC = () => {
     return (
