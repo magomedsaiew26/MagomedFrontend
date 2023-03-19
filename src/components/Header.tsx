@@ -28,20 +28,25 @@ const Header: React.FC<HeaderProps> = ({ isCreatePostPopUpVisible, changeCreateP
         </div>
         <div className="screen-name">{screenName}</div>
       </div>*/
+    <div className='flex flex-row'>
       <div className="header-container flex-row flex justify-between items-center">
-      <div className="header-item-left flex flex-row">
-        <div className="logo-container pr-2">
-          <img src={noroffLogo} alt="Noroff Logo" />
+        <div className="header-item-left flex flex-row">
+          <div className="logo-container pr-2">
+            <img src="Noroff Logo" />
+          </div>
+          <div className="screen-name">{screenName}</div>
         </div>
-        <div className="screen-name">{screenName}</div>
+        <div className="header-item-right flex flex-row items-center">
+          <div className="border-solid border-black">
+            <button className="p-2 border border-gray-300 rounded-lg inline-block px-2 py-2 mr-3" onClick={changePopUpVisibility}>
+              <span className='border-solid border-black'>New post</span>
+            </button>
+          </div>
+        </div>
+
       </div>
-      <div className="header-item-right flex flex-row items-center">
-        <div className="label-container pr-3 items-center">Latest</div>
-        <div className="post-create-btn">
-          <button className="button-post" onClick={changePopUpVisibility}>
-            New post
-          </button>
-        </div>
+      <div className='my-2 flex'>
+        <input placeholder='Search here' />
       </div>
       {isCreatePostPopUpVisible && (
         <CreatePostModal

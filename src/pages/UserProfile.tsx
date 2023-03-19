@@ -6,12 +6,15 @@ import Post from '../components/Post';
 import profilePicture from '../assets/noroff.png';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import UserInfoComponent from '../components/user/UserInfo';
+import UserDetailTab from '../components/user/UserDetailTab';
 
 interface PostData {
   id: number;
   title: string;
   content: string;
 }
+
 
 const UserProfile = () => {
   const [isCreatePostModalOpen, setIsCreatePostModalOpen] = useState(false);
@@ -62,11 +65,16 @@ const UserProfile = () => {
           onClose={toggleCreatePostModal}
           onSubmit={handlePostSubmit}
         />
+
+
+  
+        <div className="calendar-container float-right mt-5 mr-5 flex">
+          <UserInfoComponent/>
+          <Calendar value={date} onChange={onDateChange} />
       </div>
-      {/* Add the calendar component */}
-      <div className="calendar-container">
-        <Calendar value={date} onChange={onDateChange} />
+
       </div>
+
     </div>
   );
 };
